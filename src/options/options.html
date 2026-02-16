@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Hoarder Recovery - Settings</title>
+  <link rel="stylesheet" href="../styles/options.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-section">
+        <div class="logo-icon">⚡</div>
+        <h1 class="title">TAB<span class="highlight">HOARDER</span> SETTINGS</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="settings-section">
+        <h2 class="section-title">⚙️ AUTO-ARCHIVE SETTINGS</h2>
+        
+        <div class="setting-item">
+          <div class="setting-header">
+            <label for="autoArchiveEnabled" class="setting-label">
+              <span class="setting-icon">🤖</span>
+              ENABLE AUTO-ARCHIVE
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="autoArchiveEnabled">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <p class="setting-description">
+            Automatically archive tabs that haven't been accessed in a while
+          </p>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-header">
+            <label for="autoArchiveDays" class="setting-label">
+              <span class="setting-icon">📅</span>
+              AUTO-ARCHIVE AFTER (DAYS)
+            </label>
+          </div>
+          <div class="slider-container">
+            <input 
+              type="range" 
+              id="autoArchiveDays" 
+              min="1" 
+              max="30" 
+              value="7"
+              class="slider"
+            >
+            <span class="slider-value" id="autoArchiveDaysValue">7</span>
+          </div>
+          <p class="setting-description">
+            Tabs older than this will be automatically archived
+          </p>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-header">
+            <label for="maxOpenTabs" class="setting-label">
+              <span class="setting-icon">📊</span>
+              MAX OPEN TABS
+            </label>
+          </div>
+          <div class="slider-container">
+            <input 
+              type="range" 
+              id="maxOpenTabs" 
+              min="10" 
+              max="200" 
+              value="50"
+              class="slider"
+            >
+            <span class="slider-value" id="maxOpenTabsValue">50</span>
+          </div>
+          <p class="setting-description">
+            Oldest tabs will be archived when this limit is reached
+          </p>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-header">
+            <label for="archiveOnStartup" class="setting-label">
+              <span class="setting-icon">🚀</span>
+              ARCHIVE ON BROWSER STARTUP
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="archiveOnStartup">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <p class="setting-description">
+            Run auto-archive check when browser starts
+          </p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2 class="section-title">🔔 NOTIFICATIONS</h2>
+        
+        <div class="setting-item">
+          <div class="setting-header">
+            <label for="notificationsEnabled" class="setting-label">
+              <span class="setting-icon">📢</span>
+              ENABLE NOTIFICATIONS
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="notificationsEnabled">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <p class="setting-description">
+            Show notifications when tabs are archived or restored
+          </p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2 class="section-title">🚫 EXCLUSIONS</h2>
+        
+        <div class="setting-item">
+          <label for="excludedDomains" class="setting-label">
+            <span class="setting-icon">🌐</span>
+            EXCLUDED DOMAINS
+          </label>
+          <textarea 
+            id="excludedDomains" 
+            class="textarea"
+            placeholder="localhost&#10;192.168.&#10;example.com"
+            rows="5"
+          ></textarea>
+          <p class="setting-description">
+            Tabs from these domains will never be auto-archived (one per line)
+          </p>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h2 class="section-title">🗑️ DATA MANAGEMENT</h2>
+        
+        <div class="setting-item">
+          <div class="danger-zone">
+            <div class="danger-info">
+              <h3>CLEAR ARCHIVED TABS</h3>
+              <p>Permanently delete all archived tabs (cannot be undone)</p>
+            </div>
+            <button id="clearArchiveBtn" class="btn btn-danger">
+              🗑️ CLEAR ARCHIVE
+            </button>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <div class="danger-zone">
+            <div class="danger-info">
+              <h3>CLEAR ALL DATA</h3>
+              <p>Delete all archived tabs, sessions, and statistics</p>
+            </div>
+            <button id="clearAllBtn" class="btn btn-danger">
+              💣 CLEAR EVERYTHING
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <button id="saveBtn" class="btn btn-primary">
+        💾 SAVE SETTINGS
+      </button>
+      <button id="resetBtn" class="btn btn-secondary">
+        🔄 RESET TO DEFAULTS
+      </button>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
