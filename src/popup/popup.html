@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Hoarder Recovery</title>
+  <link rel="stylesheet" href="../styles/popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <div class="logo-section">
+          <div class="logo-icon">⚡</div>
+          <h1 class="title">TAB<span class="highlight">HOARDER</span></h1>
+        </div>
+        <div class="stats-mini">
+          <span class="stat-item" id="tabCount">
+            <span class="stat-label">OPEN:</span>
+            <span class="stat-value">--</span>
+          </span>
+          <span class="stat-item" id="archivedCount">
+            <span class="stat-label">ARCHIVED:</span>
+            <span class="stat-value">--</span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="search-section">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="SEARCH ARCHIVES..."
+          class="search-input"
+        >
+        <button id="clearSearch" class="search-clear">×</button>
+      </div>
+    </div>
+
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-view="archived">
+        <span class="tab-icon">📦</span>
+        <span>ARCHIVED</span>
+      </button>
+      <button class="tab-btn" data-view="sessions">
+        <span class="tab-icon">💾</span>
+        <span>SESSIONS</span>
+      </button>
+      <button class="tab-btn" data-view="analytics">
+        <span class="tab-icon">📊</span>
+        <span>STATS</span>
+      </button>
+    </nav>
+
+    <div class="category-filter" id="categoryFilter">
+      <button class="category-btn active" data-category="all">ALL</button>
+      <button class="category-btn" data-category="reading">📚 READING</button>
+      <button class="category-btn" data-category="shopping">🛒 SHOPPING</button>
+      <button class="category-btn" data-category="reference">📖 REFERENCE</button>
+      <button class="category-btn" data-category="entertainment">🎬 MEDIA</button>
+      <button class="category-btn" data-category="social">💬 SOCIAL</button>
+      <button class="category-btn" data-category="work">💼 WORK</button>
+      <button class="category-btn" data-category="research">🔬 RESEARCH</button>
+    </div>
+
+    <main class="content">
+      <div class="view active" id="archivedView">
+        <div class="tabs-list" id="archivedTabs">
+          <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>LOADING ARCHIVES...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="view" id="sessionsView">
+        <div class="sessions-header">
+          <button class="btn btn-primary" id="saveSessionBtn">
+            <span>💾</span> SAVE CURRENT SESSION
+          </button>
+        </div>
+        <div class="sessions-list" id="sessionsList">
+        </div>
+      </div>
+
+      <div class="view" id="analyticsView">
+        <div class="analytics-grid">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <span class="stat-card-icon">📦</span>
+              <h3>TOTAL ARCHIVED</h3>
+            </div>
+            <div class="stat-card-value" id="totalArchivedStat">0</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <span class="stat-card-icon">↩️</span>
+              <h3>TOTAL RESTORED</h3>
+            </div>
+            <div class="stat-card-value" id="totalRestoredStat">0</div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <span class="stat-card-icon">💾</span>
+              <h3>SESSIONS SAVED</h3>
+            </div>
+            <div class="stat-card-value" id="totalSessionsStat">0</div>
+          </div>
+        </div>
+
+        <div class="analytics-section">
+          <h3 class="section-title">CATEGORIES BREAKDOWN</h3>
+          <div class="category-chart" id="categoryChart">
+          </div>
+        </div>
+
+        <div class="analytics-section">
+          <h3 class="section-title">TOP DOMAINS</h3>
+          <div class="domain-list" id="domainList">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="action-bar">
+      <button class="btn btn-secondary" id="checkNowBtn">
+        <span>⚡</span> CHECK NOW
+      </button>
+      <button class="btn btn-secondary" id="settingsBtn">
+        <span>⚙️</span> SETTINGS
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
